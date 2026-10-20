@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusRide | College Bus Pass & Tracking</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-icon">🚌</span><span>Campus<span class="brand-blue">Ride</span></span></div>
+    <p class="menu-label">MENU</p>
+    <button class="nav-link active" data-page="dashboard">▦ <span>Dashboard</span></button>
+    <button class="nav-link" data-page="booking">＋ <span>Book a Pass</span></button>
+    <button class="nav-link" data-page="tracking">⌖ <span>Live Bus Tracking</span></button>
+    <button class="nav-link" data-page="my-pass">▤ <span>My Bus Pass</span></button>
+    <button class="nav-link" data-page="routes">↗ <span>Routes & Stops</span></button>
+    <div class="sidebar-bottom">
+      <div class="profile-avatar">S</div>
+      <div><strong>Student User</strong><small>Student account</small></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">COLLEGE TRANSPORTATION PORTAL</p>
+        <h1 id="page-title">Student Dashboard</h1>
+      </div>
+      <div class="top-actions"><span class="status-pill"><span class="dot"></span> System Demo</span><button class="avatar-button" title="Student profile">S</button></div>
+    </header>
+
+    <section class="page active-page" id="dashboard">
+      <div class="welcome-card">
+        <div><p class="eyebrow light">YOUR CAMPUS JOURNEY, SIMPLIFIED</p><h2>Good day, Student! 👋</h2><p>Manage your bus pass and check your college bus details in one place.</p><button class="primary-button" data-goto="booking">＋ Book a bus pass</button></div>
+        <div class="welcome-art" aria-hidden="true">🚌</div>
+      </div>
+      <div class="stats-grid">
+        <article class="stat-card"><div class="stat-icon blue">▤</div><p>Pass status</p><h3 id="dashboard-pass-status">No active pass</h3><small>Book a pass to get started</small></article>
+        <article class="stat-card"><div class="stat-icon green">⌖</div><p>Available routes</p><h3>3 Routes</h3><small>Demo route information</small></article>
+        <article class="stat-card"><div class="stat-icon orange">◷</div><p>Next departure</p><h3>08:15 AM</h3><small>Example schedule</small></article>
+      </div>
+      <div class="content-grid">
+        <article class="panel"><div class="panel-heading"><div><h3>Bus tracking preview</h3><p>Illustrative map — not live GPS data</p></div><button class="text-button" data-goto="tracking">Open tracking →</button></div>
+          <div class="map-preview"><div class="map-road road-one"></div><div class="map-road road-two"></div><div class="map-road road-three"></div><span class="map-label label-a">College Gate</span><span class="map-label label-b">Main Junction</span><span class="map-label label-c">Hostel Stop</span><span class="map-pin pin-a">🚌</span><span class="map-pin pin-b">●</span><span class="map-pin pin-c">●</span><span class="map-caption">DEMO ROUTE • NOT CONNECTED TO GPS</span></div>
+        </article>
+        <article class="panel"><div class="panel-heading"><div><h3>Quick actions</h3><p>Common student tasks</p></div></div><button class="action-row" data-goto="booking"><span class="action-icon">＋</span><span><strong>Book a new pass</strong><small>Choose a pass and route</small></span><b>→</b></button><button class="action-row" data-goto="my-pass"><span class="action-icon">▤</span><span><strong>View my bus pass</strong><small>See your current pass details</small></span><b>→</b></button><button class="action-row" data-goto="routes"><span class="action-icon">↗</span><span><strong>Explore routes</strong><small>Stops and sample schedules</small></span><b>→</b></button></article>
+      </div>
+    </section>
+
+    <section class="page" id="booking">
+      <div class="section-intro"><h2>Book your bus pass</h2><p>Choose your travel type and route. This prototype saves the pass in your current browser session only.</p></div>
+      <div class="panel booking-panel">
+        <form id="booking-form">
+          <label for="student-name">Student name</label><input id="student-name" required placeholder="Enter your name" />
+          <label for="student-id">College roll number</label><input id="student-id" required placeholder="e.g. EC24XX" />
+          <label>Pass type</label><div class="pass-options"><label class="pass-option"><input type="radio" name="pass-type" value="Up Pass" checked /><span><strong>↑ Up Pass</strong><small>Home to college</small></span></label><label class="pass-option"><input type="radio" name="pass-type" value="Down Pass" /><span><strong>↓ Down Pass</strong><small>College to home</small></span></label><label class="pass-option"><input type="radio" name="pass-type" value="Up + Down Pass" /><span><strong>↕ Both ways</strong><small>Full-day commute</small></span></label></div>
+          <div class="form-row"><div><label for="route">Route</label><select id="route" required><option value="Route 1">Route 1 — Town to College</option><option value="Route 2">Route 2 — East Junction</option><option value="Route 3">Route 3 — Hostel Loop</option></select></div><div><label for="stop">Boarding stop</label><select id="stop" required><option>Main Junction</option><option>Town Bus Stand</option><option>Hostel Stop</option><option>College Gate</option></select></div></div>
+          <label for="validity">Validity period</label><select id="validity"><option>Monthly</option><option>Semester</option></select>
+          <div class="notice">Demo only: payment is not processed. No real payment details are requested.</div>
+          <button class="primary-button full-button" type="submit">Create demo bus pass</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="page" id="tracking">
+      <div class="section-intro"><h2>Live bus tracking</h2><p>Interactive-style tracking preview for your project presentation.</p></div>
+      <div class="panel"><div class="panel-heading"><div><h3>Route overview</h3><p>Sample locations and stops</p></div><span class="status-pill"><span class="dot"></span> Demo mode</span></div><div class="large-map"><div class="map-road road-one"></div><div class="map-road road-two"></div><div class="map-road road-three"></div><span class="map-label label-a">College Gate</span><span class="map-label label-b">Main Junction</span><span class="map-label label-c">Hostel Stop</span><span class="map-pin pin-a">🚌</span><span class="map-pin pin-b">●</span><span class="map-pin pin-c">●</span><span class="map-caption">SAMPLE MAP • GPS NOT CONNECTED</span></div><div class="bus-detail-grid"><div><small>Selected bus</small><strong>Campus Bus 01</strong></div><div><small>Route</small><strong>Town to College</strong></div><div><small>Bus status</small><strong><span class="dot"></span> Demo / unavailable</strong></div><div><small>Estimated arrival</small><strong>Not available</strong></div></div></div>
+    </section>
+
+    <section class="page" id="my-pass">
+      <div class="section-intro"><h2>My digital bus pass</h2><p>Your demo pass will appear here after booking.</p></div>
+      <div id="pass-container" class="pass-empty panel"><div class="empty-icon">▤</div><h3>No pass created yet</h3><p>Book a pass to see your digital pass details here.</p><button class="primary-button" data-goto="booking">Book a pass</button></div>
+    </section>
+
+    <section class="page" id="routes">
+      <div class="section-intro"><h2>Routes & stops</h2><p>Sample routes for the CampusRide prototype. Replace these with your college's actual routes.</p></div>
+      <div class="route-cards"><article class="panel route-card"><span class="route-number">R1</span><h3>Town to College</h3><p>Town Bus Stand → Main Junction → College Gate</p><div class="route-meta"><span>3 stops</span><span>Sample schedule: 8:15 AM</span></div></article><article class="panel route-card"><span class="route-number purple">R2</span><h3>East Junction</h3><p>East Junction → Market Stop → College Gate</p><div class="route-meta"><span>3 stops</span><span>Sample schedule: 8:00 AM</span></div></article><article class="panel route-card"><span class="route-number orange-bg">R3</span><h3>Hostel Loop</h3><p>Hostel Stop → Library Junction → College Gate</p><div class="route-meta"><span>3 stops</span><span>Sample schedule: 8:25 AM</span></div></article></div>
+    </section>
+    <footer>CampusRide · DBMS Micro Project · Frontend demonstration prototype</footer>
+  </main>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
